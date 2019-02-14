@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Selected Json Data</h1>
+<div mat-dialog-content>
+  <mat-form-field class="matform">
+      <textarea matInput rows="6">{{data}}</textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onNoClick()" style="margin: 0 auto;">Close</button>
+</div>

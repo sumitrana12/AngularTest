@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+  <h3>Angular-Test</h3>
+</mat-toolbar>
+<main>
+
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter by title">
+    </mat-form-field>
+
+  <div class="mat-elevation-z8">
+
+    <mat-table #table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.title}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="url">
+        <mat-header-cell *matHeaderCellDef>Url</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.url}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="created_at">
+        <mat-header-cell *matHeaderCellDef> Created At </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.created_at}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="author">
+        <mat-header-cell *matHeaderCellDef>Author</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.author}}</mat-cell>
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectedRow(row)"></mat-row>
+    </mat-table>
+
+    <!-- <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
+  </div>
+
+</main>
+<!--
+<h1 mat-dialog-title>Selected Raw Json</h1>
+<div mat-dialog-content> -->
+
+
